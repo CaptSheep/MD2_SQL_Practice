@@ -1,0 +1,69 @@
+use my_database;
+select *
+from products
+where productName like '%Ford%';
+
+select *
+from products
+where productName like '%ship';
+
+select country, count(country)
+from customers
+where country in ('Denmark', 'Sweden', 'Norway')
+group by country;
+
+select *
+from products
+where productCode between 'S700_1000' and 'S700_1499';
+
+select *
+from customers
+where customerName regexp '[0-9]';
+
+select *
+from employees
+where firstName = 'Larry'
+   or firstName = 'Barry';
+
+select country, count(customerName)
+from customers
+group by country
+order by count(customerName) DESC
+limit 1;
+
+select customerName, phone, orderdetails.orderNumber, sum(quantityOrdered * orderdetails.priceEach) as total
+from orderdetails
+         join orders o on o.orderNumber = orderdetails.orderNumber
+         join customers c on c.customerNumber = o.customerNumber
+group by o.orderNumber
+order by total desc
+limit 3;
+
+
+select *
+from payments
+limit 10;
+
+
+select *
+from payments
+where paymentDate
+order by paymentDate desc;
+
+select amount
+from payments
+where amount > (select avg(amount) * 2 from payments)
+group by amount asc;
+
+select distinct count(productName)
+from products;
+
+select customerName, p.amount
+from customers
+         join payments p on customers.customerNumber = p.customerNumber
+where customerName = 'Herkku Gifts'
+  and p.customerNumber = '167';
+
+select *
+from customers
+where customerName regexp '^[^a-z].^[^A-Z]';
