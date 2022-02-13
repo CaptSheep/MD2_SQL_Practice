@@ -1,0 +1,4 @@
+1. Lấy ra các thành phố có kí tự ngắn nhất vài dài nhất, bắt đầu bằng các kí tự Alphabet
+(SELECT CITY, LENGTH(CITY) AS LEN FROM customers ORDER BY LEN DESC , CITY ASC LIMIT 1)
+union
+(SELECT CITY, LENGTH(CITY) AS LEN FROM customers ORDER BY LEN ASC, CITY ASC LIMIT 1);
