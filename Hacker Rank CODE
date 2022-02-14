@@ -2,3 +2,27 @@
 (SELECT CITY, LENGTH(CITY) AS LEN FROM customers ORDER BY LEN DESC , CITY ASC LIMIT 1)
 union
 (SELECT CITY, LENGTH(CITY) AS LEN FROM customers ORDER BY LEN ASC, CITY ASC LIMIT 1);
+
+2. Lấy ra tên các nước bắt đầu bằng các nguyên âm : a,i,u,e,o
+SELECT DISTINCT city FROM station WHERE city REGEXP "^[aeiou]";
+
+3.Lấy ra tên các nước kết thúc bằng các nguyên âm : a,i,u,e,o
+SELECT DISTINCT city FROM station WHERE city REGEXP "[aeiou]$";
+
+4. Chọn ra các quốc gia có bắt đầu và kết thúc bằng nguyên âm : a,i,u,e,o
+SELECT DISTINCT CITY
+FROM STATION
+WHERE CITY REGEXP '^[aeiou]' AND CITY RLIKE '[aeiou]$';
+
+5. Chọn các quốc gia bắt đầu không phải là nguyên âm :
+
+SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[^aiueo]";
+
+6. Chọn các quốc gia kết thúc không phải là nguyên âm :
+
+SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "[^aiueo]$";
+
+7. Chọn các nước không bắt đầu hoặc kết thúc bằng nguyên âm :
+
+SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[^aiueo]|[^aiueo]$"
+
