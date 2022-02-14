@@ -30,3 +30,8 @@ SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[^aiueo]|[^aiueo]$"
 
 SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[^aiueo]" AND CITY RLIKE '[^aiueo]$'
 
+9 . Lấy ra tên các bạn học sinh có điểm trên 75 , sắp xếp theo 3 ký tự cuối cùng của tên, nếu có bạn trùng 3 kí tự cuối cùng thì sẽ lấy id tăng dần:
+ - Hàm Right để lấy ra kí số kí tự bên phải của tên
+
+SELECT NAME FROM STUDENTS WHERE MARKS > 75 ORDER BY RIGHT(NAME,3), ID ASC;
+
