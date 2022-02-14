@@ -26,3 +26,7 @@ SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "[^aiueo]$";
 
 SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[^aiueo]|[^aiueo]$"
 
+8. Chọn các nước không bắt đầu và không kết thúc bằng nguyên âm :
+
+SELECT DISTINCT CITY FROM STATION WHERE CITY REGEXP "^[^aiueo]" AND CITY RLIKE '[^aiueo]$'
+
